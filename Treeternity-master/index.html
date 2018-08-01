@@ -27,7 +27,7 @@
                 text-align: center;
               }
             }
-           
+
             .gmnoprint > div[draggable~=false],
             button[title~=Zoom]{display:none !important;}
         </style>
@@ -134,7 +134,7 @@
             <ul class="copyright">
                 <li><p>Plant a little love in every place by a few volunteers with abundant love. Peace and love :)</p></li>
             </ul>
-
+            <div id="result"></div>
         </footer>
 
         <script src="static/js/main.js"></script>
@@ -176,16 +176,22 @@
             //    geocodeAddress(geocoder, map);
             //    return false;
             //}
-            document.getElementById('submit').addEventListener('click', function() {
+            document.getElementById('submit').addEventListener('click', function () {
+               // debugger;
+
                 geocodeAddress(geocoder, map);
                 $(".bannerimg").animate({ opacity: '0' }, "800").delay(800).hide();
+
                // debugger;
                 jsonObj = [];
                 var i = 0;
                 $("#3d").click(function (e) {
+                   // debugger;
+                    var area = "";
+                    area = $("#address").val();
                     var numTree = i++;
                     var posX = $(this).offset().left, posY = $(this).offset().top;
-                    //  alert("e.pageX: " + e.pageX + " posX:" + posX + " e.pageY:" + e.pageY + " posY:" + posY);
+                    //  //alert("e.pageX: " + e.pageX + " posX:" + posX + " e.pageY:" + e.pageY + " posY:" + posY);
 
                     var toppo = e.pageY - 205;
                     var leftpo = e.pageX - 75;
@@ -200,6 +206,10 @@
                     jsonObj.push(item);
 
                     console.log(jsonObj); // here you will get the json of numbers of trees and there positions;
+
+
+                    localStorage.setItem( area, JSON.stringify(jsonObj));
+
                     return false;
                 });
 
@@ -207,6 +217,25 @@
                 jsonObj.length = 0;
               //  console.log(jsonObj);
                 $("#3d").empty();
+
+
+               var areatosearch = $("#address").val();
+                var previouTrees = localStorage.getItem(areatosearch)
+
+
+                if (previouTrees !== null) {
+                    //...
+                   // //alert(previouTrees);
+                    var obj = jQuery.parseJSON(previouTrees);
+                    $.each(obj, function (key, value) {
+                       // //alert(key + ":" + value);
+
+                        $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + value.treeY + "px;" + " width:150px; left:" + value.treeX + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
+                    });
+                   // $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + toppo + "px;" + " width:150px; left:" + leftpo + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
+                } else {
+                   // //alert(2);
+                }
             });
 
 
@@ -287,7 +316,7 @@
                   streetviewLocation = results[0].geometry.location;
 
                 } else {
-                  alert('Geocode was not successful for the following reason: ' + status);
+                  //alert('Geocode was not successful for the following reason: ' + status);
                 }
 
                 });
@@ -435,7 +464,7 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-
+                localStorage.clear();
             })
         </script>
 
