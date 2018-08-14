@@ -33,6 +33,9 @@
         button[title~=Zoom] {
             display: none !important;
         }
+        .gm-iv-address,button.gm-control-active.gm-fullscreen-control {
+             display: none !important;
+}
     </style>
 
     <!-- Scripts -->
@@ -89,10 +92,17 @@
                         <td><b>Pitch:</b></td>
                         <td id="pitch-cell">0.0</td>
                     </tr>
+                    <tr>
+                        <td><b>Location ID</b></td>
+                        <td id="location-cell"></td>
+                    </tr>
                     <tr style="display: none">
                         <td><b>Pano ID</b></td>
                         <td id="pano-cell">&nbsp;</td>
                     </tr>
+
+
+                    Location
                     <table id="links_table"></table>
                 </table>
             </div>
@@ -168,11 +178,15 @@
                 zoom: 13,
                 center: initPosition,
                 gestureHandling: 'none',
-                zoomControl: false
+                zoomControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                fullscreenControl: false
             });
 
             map.addListener('click', function (e) {
-               // // alert(e.latLng, map);
+               // // // alert(e.latLng, map);
 
             });
 
@@ -193,7 +207,10 @@
                 var long = document.getElementById("lng-cell").innerHTML;
                 var headi = document.getElementById("heading-cell").innerHTML;
                 var pit = document.getElementById("pitch-cell").innerHTML;
+                var loca = document.getElementById("location-cell").innerHTML;
                 $("#3d").click(function (e) {
+                    var loca = document.getElementById("location-cell").innerHTML;
+                    // alert(loca);
                     // debugger;
                     var area = "";
                     area = $("#address").val();
@@ -206,13 +223,11 @@
                     item["treeNo"] = numTree;
                     item["treeFromViewportTop"] = toppo;
                     item["treeFromViewportLeft"] = leftpo;
-
                     item["latitude"] = lat;
                     item["longitude"] = long;
                     item["heading"] = headi + "%";
                     item["pitch"] = pit;
-
-
+                    item["location"] = loca;
 
                     jsonObj.push(item);
                     console.log(jsonObj); // here you will get the json of numbers of trees and there positions;
@@ -228,12 +243,12 @@
                 if (previouTrees !== null) {
                     var obj = jQuery.parseJSON(previouTrees);
                     $.each(obj, function (key, value) {
-                        // alert(key + ":" + value);
+                        // // alert(key + ":" + value);
                         $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + value.treeFromViewportTop + "px;" + " width:150px; left:" + value.treeFromViewportLeft + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
                     });
 
                 } else {
-                    // //// alert(2);
+                    // //// // alert(2);
                 }
 
             });
@@ -253,7 +268,7 @@
 
         function addPanoramaListener(panoramaObject) {
 
-           // // alert(panoramaObject);
+           // // // alert(panoramaObject);
             panorama.addListener('pano_changed', function () {
                 var panoCell = document.getElementById('pano-cell');
                 panoCell.innerHTML = panorama.getPano();
@@ -303,14 +318,28 @@
                     sv.getPanorama({ location: results[0].geometry.location, radius: 50 }, processSVData);
                     streetviewLocation = results[0].geometry.location;
 
+                    var loc = document.getElementById('location-cell');
                     var latitude = results[0].geometry.location.lat();
                     var longitude = results[0].geometry.location.lng();
-                    // alert(latitude + " " + longitude);
+                   // // alert(latitude + " " + longitude);
+                    var latlng = new google.maps.LatLng(latitude, longitude);
+                    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[1]) {
+                                //// alert("Location: " + results[1].formatted_address);
+                                loc.innerHTML = results[1].formatted_address;
+
+                            }
+                        }
+                    });
                 } else {
-                    //// alert('Geocode was not successful for the following reason: ' + status);
+                    //// // alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
         }
+
+
+
         function processSVData(data, status) {
             if (status === google.maps.StreetViewStatus.OK) {
                 var marker = new google.maps.Marker({
