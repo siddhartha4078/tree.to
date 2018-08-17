@@ -14,6 +14,14 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="static/css/ie9.css" /><![endif]-->
     <style>
+        div#treeDiv{background-color:rgba(0,0,0,0.5)}
+        .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom{
+                display: table !important;
+    width: 49px !important;
+    height: 48px !important;
+    right: 0px !important;
+    bottom: 11px !important;
+        }
         @media (max-width : 845px) {
             .address {
                 width: 100% !important;
@@ -33,9 +41,10 @@
         button[title~=Zoom] {
             display: none !important;
         }
-        .gm-iv-address,button.gm-control-active.gm-fullscreen-control {
-             display: none !important;
-}
+
+        .gm-iv-address, button.gm-control-active.gm-fullscreen-control {
+            display: none !important;
+        }
     </style>
 
     <!-- Scripts -->
@@ -67,10 +76,17 @@
             <div style='position: absolute; top:0; bottom:0; left:0; right:0; z-index: 0' id='pano'>
             </div>
 
+            <div id="treeDivWrap" style="position: absolute; top:0; bottom:20px; left: 0; right: 70px; z-index: 5000;display:flex">
+                <div style="position:relative;overflow:hidden;width: 100%;">
+                    <div id='treeDiv' style="position:absolute;left: 0;bottom: 0;top: 0;width: 100%;">
+                        <h1 style="color:#ffffff;text-align:center;margin-top: 2%;font-size: 30px;width: 8911px">Peace and love</h1>
+                    </div>
+                </div>
 
-            <div id='3d' style="position: absolute; top:0; bottom:20px; left: 0; right: 70px; z-index: 5000;"></div>
+            </div>
 
-            <div id="floating-panel" style='display:none;'>
+
+            <div id="floating-panel" style='display: none;'>
                 <table style="padding-left: 15px; margin-top: 20px">
                     <tr>
                         <td><b>Position</b></td>
@@ -125,8 +141,8 @@
             </div>
 
             <div style='clear:both;'></div>
-            </section>
-</div>
+        </section>
+    </div>
 
 
 
@@ -135,7 +151,7 @@
     <footer id="footer">
 
         <ul class="icons">
-            <li><a href="https://github.com/treeternity/treeternity/blob/master/static/3d/ATTRIBUTION.md" class="icon circle fa-github"><span class="label">Attribution</span></a></li>
+            <li><a href="https://github.com/treeternity/treeternity/blob/master/static/treeDiv/ATTRIBUTION.md" class="icon circle fa-github"><span class="label">Attribution</span></a></li>
         </ul>
 
         <ul class="copyright">
@@ -148,15 +164,15 @@
         </ul>
 
     </footer>
+    <input type="hidden" id="whatposition"/>
 
     <script src="static/js/main.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwv3jzb9Cc4QD9pRhwgeL4pz8WX6DRpLE&signed_in=true&callback=initMap" async defer></script>
 
-     </script>-->
+
     <!--<script type="text/javascript" src="static/js/streetviewpoc.js"></script>-->
     <!-- 3ds -->
-
     <!--https://developers.google.com/maps/documentation/javascript/examples/streetview-events-->
     <script src="static/js/jquery.mousewheel.js"></script>
     <script src="static/js/three.min.js"></script>
@@ -167,11 +183,33 @@
     <!-- map -->
 
     <script type="text/javascript">
+            $(document).ready(function () {
+                localStorage.clear();
+                var hiddentxt = document.getElementById("whatposition");
+                var wrapperdiv = document.getElementById("treeDivWrap").clientWidth;
+                alert(wrapperdiv);
+
+                var totalwidth = parseFloat(wrapperdiv) * 7;
+                var leftPO = parseFloat(wrapperdiv) * 3;
+
+                var forcenter = totalwidth - leftPO;
+
+                var scrollingDiv = document.getElementById("treeDiv")
+                scrollingDiv.style.width = totalwidth + "px";
+                scrollingDiv.style.left = "-" + forcenter + "px";
+                hiddentxt.value = forcenter;
+            })
+    </script>
+
+    <script type="text/javascript">
         var map;
         var panorama;
         var sv;
         var initPosition = { lat: 39.7392, lng: -104.9903 };
         var streetviewLocation;
+
+
+
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -208,7 +246,9 @@
                 var headi = document.getElementById("heading-cell").innerHTML;
                 var pit = document.getElementById("pitch-cell").innerHTML;
                 var loca = document.getElementById("location-cell").innerHTML;
-                $("#3d").click(function (e) {
+
+
+                $("#treeDiv").click(function (e) {
                     var loca = document.getElementById("location-cell").innerHTML;
                     // alert(loca);
                     // debugger;
@@ -218,7 +258,7 @@
                     var posX = $(this).offset().left, posY = $(this).offset().top;
                     var toppo = e.pageY - 205;
                     var leftpo = e.pageX - 75;
-                    $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + toppo + "px;" + " width:150px; left:" + leftpo + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
+                    $("#treeDiv").append("<img src='static/treeDiv/tree_1.png' style='position: absolute; top:" + toppo + "px;" + " width:150px; left:" + leftpo + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
                     item = {}
                     item["treeNo"] = numTree;
                     item["treeFromViewportTop"] = toppo;
@@ -237,33 +277,85 @@
                 jsonObj = [];
                 jsonObj.length = 0;
                 //  console.log(jsonObj);
-                $("#3d").empty();
+                $("#treeDiv").empty();
                 var areatosearch = $("#address").val();
                 var previouTrees = localStorage.getItem(areatosearch)
                 if (previouTrees !== null) {
                     var obj = jQuery.parseJSON(previouTrees);
                     $.each(obj, function (key, value) {
                         // // alert(key + ":" + value);
-                        $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + value.treeFromViewportTop + "px;" + " width:150px; left:" + value.treeFromViewportLeft + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
+                        $("#treeDiv").append("<img src='static/treeDiv/tree_1.png' style='position: absolute; top:" + value.treeFromViewportTop + "px;" + " width:150px; left:" + value.treeFromViewportLeft + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
                     });
 
                 } else {
                     // //// // alert(2);
                 }
 
+                debugger;
+                var countpluse = 0;
+                var countsub = 0;
+                $(".gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom .gm-compass button").click(function () {
+                    var btn = $(this).attr("jstcache");
+                    // alert(btn)
+                    var wrapperdiv = document.getElementById("treeDivWrap").clientWidth;
+
+                    if (btn == 41) {
+                        countpluse++;
+                        var hiddentxtval = document.getElementById("whatposition").value;
+                        var wrapperdiv = document.getElementById("treeDivWrap").clientWidth;
+                        var scrollingDiv = document.getElementById("treeDiv");
+                        if (countpluse <= 3) {
+                           // alert("hiddentxtval " + hiddentxtval);
+                            var addvalues = parseFloat(hiddentxtval) + parseFloat(wrapperdiv);
+                           // alert("addvalues " + addvalues);
+                            document.getElementById("whatposition").value = addvalues;
+                            scrollingDiv.style.left = "-" + addvalues + "px";
+                        }
+
+                        if (countpluse >= 4) {
+                            var totalwidth = wrapperdiv * 7;
+                            var scrollingDiv = document.getElementById("treeDiv")
+                            scrollingDiv.style.width = totalwidth + "px";
+                            var getcenter = totalwidth / 2;
+                            scrollingDiv.style.left = "-" + getcenter + "px";
+                            hiddentxt.value = getcenter;
+                            countpluse = 0;
+                        }
+                    }
+                    if (btn == 40) {
+                        countsub++
+                        var hiddentxtval = document.getElementById("whatposition").value;
+                        var wrapperdiv = document.getElementById("treeDivWrap").clientWidth;
+                        var scrollingDiv = document.getElementById("treeDiv");
+                        if (countsub <= 3) {
+                            // alert("hiddentxtval " + hiddentxtval);
+                            var addvalues = parseFloat(hiddentxtval) + parseFloat(wrapperdiv);
+                            // alert("addvalues " + addvalues);
+                            document.getElementById("whatposition").value = addvalues;
+                            scrollingDiv.style.left = addvalues + "px";
+                        }
+
+                        if (countsub >= 4) {
+                            var totalwidth = wrapperdiv * 7;
+                            var scrollingDiv = document.getElementById("treeDiv")
+                            scrollingDiv.style.width = totalwidth + "px";
+                            var getcenter = totalwidth / 2;
+                            scrollingDiv.style.left = "-" + getcenter + "px";
+                            hiddentxt.value = getcenter;
+                            countsub = 0;
+                        }
+
+
+                    }
+                });
+
+
             });
-
-
-
-
-
 
             sv = new google.maps.StreetViewService();
             panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
             addPanoramaListener(panorama);
             panorama.setPosition(initPosition);
-
-
         }
 
         function addPanoramaListener(panoramaObject) {
@@ -303,8 +395,43 @@
                 var pitchCell = document.getElementById('pitch-cell');
                 headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
                 pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
+
+                window.setTimeout(function () {
+                    rotatedPanoramp();
+                }, 3000);
             });
+
         }
+
+
+        function rotatedPanoramp() {
+            var transform = $(".gm-compass button[jstcache~=39]");
+            var headingVal = document.getElementById('heading-cell').innerHTML;
+
+
+            function getRotationDegrees(obj) {
+                var matrix = obj.css("-webkit-transform") ||
+                obj.css("-moz-transform") ||
+                obj.css("-ms-transform") ||
+                obj.css("-o-transform") ||
+                obj.css("transform");
+                if (matrix !== 'none') {
+                    var values = matrix.split('(')[1].split(')')[0].split(',');
+                    var a = values[0];
+                    var b = values[1];
+                    var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+
+                   //  alert("angle " + angle + " headingVal " + headingVal);
+
+                } else { var angle = 0; }
+                return (angle < 0) ? angle + 360 : angle;
+            }
+
+            angle1 = getRotationDegrees(transform);
+        }
+
+
+
         function geocodeAddress(geocoder, resultsMap) {
             var address = document.getElementById('address').value;
             geocoder.geocode({ 'address': address }, function (results, status) {
@@ -385,6 +512,8 @@
             // window.location =  coreURL + imageWidth + 'x' + imageHeigth + '&location=' + location +'&heading=' + heading + '&pitch=' + pitch + '&key=' + apiKey;
         });
 
+
+
     </script>
 
 
@@ -455,20 +584,16 @@
             // On the parking lot behind Ada Byron building
             var objectPosition = [41.684561,-0.888864];
             var worldOrigin = [41.684561,-0.888864];
-            var meshPos =  {'x': 0, 'y': -2, 'z': 0}; // We take the position of the 3d object as the center of the world, so its position will be 0,-2,0
+            var meshPos =  {'x': 0, 'y': -2, 'z': 0}; // We take the position of the treeDiv object as the center of the world, so its position will be 0,-2,0
 
            // var loader = new THREE.TDSLoader( );
-          // loader.setPath( 'static/3d/' );
-           //loader.load('static/3d/TreeN190616.3ds', loadWheel);
-           //loader.load('static/3d/tree_PNG3477.png', loadWheel);
+          // loader.setPath( 'static/treeDiv/' );
+           //loader.load('static/treeDiv/TreeN190616.3ds', loadWheel);
+           //loader.load('static/treeDiv/tree_PNG3477.png', loadWheel);
 
     </script>
 
-    <script type="text/javascript">
-            $(document).ready(function () {
-                localStorage.clear();
-            })
-    </script>
+
 
 
 
