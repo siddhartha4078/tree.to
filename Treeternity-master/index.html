@@ -1,410 +1,174 @@
 ﻿<!DOCTYPE HTML>
 <!--
-    Twenty by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<head>
-    <title>Treeternity - Volunteer and choose epoxy based alternatives.  Trees blissfully dancing eternally.</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="static/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="static/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="static/css/ie9.css" /><![endif]-->
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/full-slider.css" rel="stylesheet">
-    <style>
-        /*div#treeDiv {
-            background-color: rgba(0,0,0,0.5);
-        }*/
-        .carousel-control-prev,.carousel-control-next{display:none;}
-        .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
-            display: table !important;
-            width: 49px !important;
-            height: 48px !important;
-            right: 0px !important;
-            bottom: 11px !important;
-        }
-
-        @media (max-width : 845px) {
-            .address {
-                width: 100% !important;
-                float: none !important;
+	<head>
+		<title>Treeternity - Volunteer and choose epoxy based alternatives.  Trees blissfully dancing eternally.</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="static/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="static/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="static/css/ie9.css" /><![endif]-->
+        <style>
+            @media (max-width : 845px){
+              .address {
+                width:100% !important;
+                float:none !important;
                 margin-bottom: 15px;
-            }
-
-            .address_street {
-                width: 100%;
-                min-width: 100%;
-                float: none !important;
+              }
+              .address_street {
+                width:100%;
+                min-width:100%;
+                float:none !important;
                 text-align: center;
+              }
             }
-        }
 
-        .gmnoprint > div[draggable~=false],
-        button[title~=Zoom] {
-            display: none !important;
-        }
+            .gmnoprint > div[draggable~=false],
+            button[title~=Zoom]{display:none !important;}
+        </style>
 
-        .gm-iv-address, button.gm-control-active.gm-fullscreen-control {
-            display: none !important;
-        }
-        .comdiv{
-            float:left;
-            height:100%;
-            position: relative;
-            min-height: 1px;
-            padding-right: 15px;
-            padding-left: 15px;
-             -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
+        <!-- Scripts -->
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/jquery.dropotron.min.js"></script>
+        <script src="static/js/jquery.scrolly.min.js"></script>
+        <script src="static/js/jquery.scrollgress.min.js"></script>
+        <script src="static/js/skel.min.js"></script>
+        <script src="static/js/util.js"></script>
+        <!--[if lte IE 8]><script src="static/js/ie/respond.min.js"></script><![endif]-->
 
+	</head>
+	<body class="index">
+		<div id="page-wrapper">
 
-        /*.comdiv1{background-color:#ff0000}
-        .comdiv2{background-color: #ff6a00}
-        .comdiv3{background-color: #ffd800}
-        .comdiv4{background-color: #d51edd}
-        .comdiv5{background-color: #00ff21}
-        .comdiv6{background-color: #808080}
-        .comdiv7{background-color: #2986ea}*/
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a href="index.html">Treeternity <span>eternal bliss for every tree</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="#" class="button special">Plant</a></li>
+						</ul>
+					</nav>
+				</header>
 
-        .sliderSection{
-            position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    width: 100%;
-    /*border: 2px solid #000;*/
-        }
-        #buttondiv{
-          position: absolute;
-    bottom: 12px;
-    right: 6px;
-    z-index: 999;
-    width: 60px;
-    height: 60px;
-        }
-        #buttondiv > div{
-                position: relative;
-    width: 60px;
-    height: 60px;
-        }
-        #circle{
-                position: absolute;
-    top: 0;
-    left: 0;
-        }
-        #btn1{
-      background-color: transparent;
-    border: 0px;
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: -5px;
-        }
-         #btn2{
-       background-color: transparent;
-    border: 0px;
-    position: absolute;
-    transform: rotate(180deg);
-    cursor: pointer;
-    top: 0;
-    left: 31px;
-        }
-         #arrow{
-             position: absolute;
-    top: 5px;
-    left: 6px;
-         }
-          .gm-compass{display:none !important;}
-    </style>
-
-    <!-- Scripts -->
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/jquery.dropotron.min.js"></script>
-    <script src="static/js/jquery.scrolly.min.js"></script>
-    <script src="static/js/jquery.scrollgress.min.js"></script>
-    <script src="static/js/skel.min.js"></script>
-    <script src="static/js/util.js"></script>
-    <!--[if lte IE 8]><script src="static/js/ie/respond.min.js"></script><![endif]-->
-
-
-
-</head>
-<body class="index">
-    <div id="page-wrapper">
-
-        <!-- Header -->
-        <header id="header" class="alt">
-            <h1 id="logo"><a href="index.html">Treeternity <span>eternal bliss for every tree</span></a></h1>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#" class="button special">Plant</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section id="banner" style='position:relative;overflow:hidden;'>
-            <div class="bannerimg"></div>
-            <div style='position: absolute; top: 75px; left: 0px; width: 100%; height: 340px; display:none;' id='map'>
-            </div>
-            <div style='position: absolute; top:0; bottom:0; left:0; right:0; z-index: 0' id='pano'>
-            </div>
-            <div id="floating-panel" style='display: none;'>
-                <table style="padding-left: 15px; margin-top: 20px">
-                    <tr>
-                        <td><b>Position</b></td>
-                        <td id="position-cell">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td><b>Latitude</b></td>
-                        <td id="lat-cell">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td><b>Longitude</b></td>
-                        <td id="lng-cell">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td><b>Heading:</b></td>
-                        <td id="heading-cell">270</td>
-                    </tr>
-                    <tr>
-                        <td><b>Pitch:</b></td>
-                        <td id="pitch-cell">0.0</td>
-                    </tr>
-                    <tr>
-                        <td><b>Location ID</b></td>
-                        <td id="location-cell"></td>
-                    </tr>
-                    <tr style="display: none">
-                        <td><b>Pano ID</b></td>
-                        <td id="pano-cell">&nbsp;</td>
-                    </tr>
-
-
-                    Location
-                    <table id="links_table"></table>
-                </table>
-            </div>
-            <div class='address' style='position:relative;z-index: 99999;padding:10px;width: 620px;margin: 0px auto;'>
-                <div class='inner'>
-                    <header>
-                        <h2 style='padding-bottom: 5px;'>Plant a tree</h2>
-                    </header>
-                    <form>
-                        <input id="address" placeholder="Enter your address" type="text" name="address">
-
-                        <!--<input id="submit" type="button" value="Plant a virtual tree" style="" onclick='submit_button(); return false;' />-->
-
-                        <input id="submit" type="button" value="Plant a virtual tree" style="" />
-                    </form>
-
-                </div>
-            </div>
-            <section class="sliderSection">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
-                    <ol class="carousel-indicators" style="display:none;">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox" id="treeDiv">
-                        <!-- Slide One - Set the background image for this slide in the line below -->
-                        <div class="carousel-item active" id="slide1">
-                            <img src='static/3d/tree_1.png' style='position: absolute; top:0px; width:150px; left:30px;right: 70px; z-index: 5000;' alt='tree' />
-
-                        </div>
-                        <!-- Slide Two - Set the background image for this slide in the line below -->
-                        <div class="carousel-item" id="slide2">
-
-                        </div>
-                        <!-- Slide Three - Set the background image for this slide in the line below -->
-                        <div class="carousel-item" id="slide3">
-
-                        </div>
-                        <div class="carousel-item" id="slide4">
-
-                        </div>
+			<!-- Banner -->
+				<section id="banner" style='position:relative;'>
+                    <!--<img src="images/tree-bark-wallpapers2.jpg" style="width: 100%;height: fit-content;"/>-->
+                    <div class="bannerimg"></div>
+                    <div style='position: absolute; top: 75px; left: 0px; width: 100%; height: 340px; display:none;' id='map'>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </section>
-            <div id="buttondiv">
-                <div>
-                    <img id="circle" height="50" width="50" jstcache="38" src="compass/download.svg" jsan="8.src,0.height,0.width">
-                    <img id="arrow" height="40" width="40" jstcache="38" src="compass/arrow.svg" jsan="8.src,0.height,0.width">
-                    <button id="btn1">
-                        <img height="48" width="14" jstcache="38" src="compass/left.svg" jsan="8.src,0.height,0.width">
-                    </button>
-                    <button id="btn2">
-                        <img height="48" width="14" jstcache="38" src="compass/left.svg" jsan="8.src,0.height,0.width">
-                    </button>
-                </div>
 
-            </div>
-            <div style='clear:both;'></div>
-        </section>
+                    <div style='position: absolute; top:0; bottom:0; left:0; right:0; z-index: 0' id='pano'>
+                    </div>
+
+                    <div id='3d' style="position: absolute; top:0; bottom:20px; left: 0; right: 70px; z-index: 5000;"></div>
 
 
-    </div>
+						<!--".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).-->
 
-
-
-
-    <input type="hidden" id="whatposition" />
-    <input type="hidden" id="lastval" />
-    <footer id="footer">
-
-        <ul class="icons">
-            <li><a href="https://github.com/treeternity/treeternity/blob/master/static/3d/ATTRIBUTION.md" class="icon circle fa-github"><span class="label">Attribution</span></a></li>
-        </ul>
-
-        <ul class="copyright">
-            <li>&copy; Tree.to</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a>. </li>
-        </ul>
-
-        <ul class="copyright">
-            <li><p>Plant a little love in every place by a few volunteers with abundant love. Peace and love :)</p></li>
-        </ul>
-
-    </footer>
+                 	   <div id="floating-panel" style='display:none;'>
+                        <table style="padding-left: 15px; margin-top: 20px">
+                            <tr>
+                                <td><b>Position</b></td><td id="position-cell">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><b>Latitude</b></td> <td id="lat-cell">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><b>Longitude</b></td> <td id="lng-cell">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><b>Heading:</b></td><td id="heading-cell">270</td>
+                            </tr>
+                            <tr>
+                                <td><b>Pitch:</b></td><td id="pitch-cell">0.0</td>
+                            </tr>
+                            <tr style="display: none">
+                                <td><b>Pano ID</b></td><td id="pano-cell">&nbsp;</td>
+                            </tr>
+                            <table id="links_table"></table>
+                        </table>
+                    </div>
 
 
 
-    <script src="static/js/main.js"></script>
+					<div class='address' style='position:relative;z-index: 5002;padding:10px;width: 620px;margin: 0px auto;'>
+                        <div class='inner'>
+                            <header>
+                                <h2 style='padding-bottom: 5px;'>Plant a tree</h2>
+                            </header>
+                            <form>
+                                <input id="address" placeholder="Enter your address" type="text" name="address">
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwv3jzb9Cc4QD9pRhwgeL4pz8WX6DRpLE&signed_in=true&callback=initMap" async defer></script>
+								<!--<input id="submit" type="button" value="Plant a virtual tree" style="" onclick='submit_button(); return false;' />-->
+
+                                <input id="submit" type="button" value="Plant a virtual tree" style="" />
+                           </form>
+
+                        </div>
+					</div>
+
+                    <div style='clear:both;'></div>
+                    </section>
 
 
-    <!--<script type="text/javascript" src="static/js/streetviewpoc.js"></script>-->
-    <!-- 3ds -->
-    <!--https://developers.google.com/maps/documentation/javascript/examples/streetview-events-->
-    <script src="static/js/jquery.mousewheel.js"></script>
-    <script src="static/js/three.min.js"></script>
-    <script src="static/js/TDSLoader.js"></script>
-    <script src="static/js/Detector.js"></script>
-    <script src="static/js/streetviewoverlay.js"></script>
+		</div>
 
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-        $('.carousel').carousel({
-          interval: false
-        });
-    </script>
+        <footer id="footer">
 
-    <!-- map -->
+            <ul class="icons">
+                <li><a href="https://github.com/treeternity/treeternity/blob/master/static/3d/ATTRIBUTION.md" class="icon circle fa-github"><span class="label">Attribution</span></a></li>
+            </ul>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var counttt = 1;
-            $("#btn1").click(function () {
-                $("[jstcache=40]").click();
+            <ul class="copyright">
+                <li>&copy; Tree.to</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>. </li>
+            </ul>
 
-                var rot = counttt++ * 90;
+            <ul class="copyright">
+                <li><p>Plant a little love in every place by a few volunteers with abundant love. Peace and love :)</p></li>
+            </ul>
+            <div id="result"></div>
+            Lat: <input type="text" id='lat'>
+            Lon: <input type="text" id='lon'>
+        </footer>
 
-                $('#arrow').animate({ borderSpacing: rot }, {
-                    step: function (now, fx) {
-                        $(this).css('-webkit-transform', 'rotate(' + now + 'deg)');
-                        $(this).css('-moz-transform', 'rotate(' + now + 'deg)');
-                        $(this).css('transform', 'rotate(' + now + 'deg)');
-                    },
-                    duration: 'slow'
-                }, 'linear');
+        <script src="static/js/main.js"></script>
 
-            });
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwv3jzb9Cc4QD9pRhwgeL4pz8WX6DRpLE&signed_in=true&callback=initMap" async defer></script>
+       <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&key=AIzaSyDwv3jzb9Cc4QD9pRhwgeL4pz8WX6DRpLE&signed_in" async defer>
+        </script>-->
 
-            $("#btn2").click(function () {
-                $("[jstcache=41]").click();
-                var rot = counttt++ * 90;
 
-                $('#arrow').animate({ borderSpacing: rot }, {
-                    step: function (now, fx) {
-                        $(this).css('-webkit-transform', 'rotate(-' + now + 'deg)');
-                        $(this).css('-moz-transform', 'rotate(-' + now + 'deg)');
-                        $(this).css('transform', 'rotate(-' + now + 'deg)');
-                    },
-                    duration: 'slow'
-                }, 'linear');
-            });
-                localStorage.clear();
+        <!--<script type="text/javascript" src="static/js/streetviewpoc.js"></script>-->
+        <!-- 3ds -->
+        <script src="static/js/jquery.mousewheel.js"></script>
+        <script src="static/js/three.min.js"></script>
+        <script src="static/js/TDSLoader.js"></script>
+        <script src="static/js/Detector.js"></script>
+        <script src="static/js/streetviewoverlay.js"></script>
 
-                // JSON
-                jsonObj = [];
-                var i = 0;
-                $("#treeDiv div").click(function (e) {
+            <!-- map -->
 
-                    var lat = document.getElementById("lat-cell").innerHTML;
-                    var long = document.getElementById("lng-cell").innerHTML;
-                    var headi = document.getElementById("heading-cell").innerHTML;
-                    var pit = document.getElementById("pitch-cell").innerHTML;
-                    var loca = document.getElementById("location-cell").innerHTML;
-                    var divid = $(this).attr('id');
-                   // alert(divid);
-                    var area = "";
-                    area = $("#address").val();
-                    var numTree = i++;
-                    // var posX = $(this).offset().left, posY = $(this).offset().top;
-                    var toppo = e.clientY - 205;
-                    var leftpo = e.clientX - 75;
-
-                    $("#" + divid).append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + toppo + "px;" + " width:150px; left:" + leftpo + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
-                    item = {}
-                    item["divId"] = divid;
-                    item["treeNo"] = numTree;
-                    item["treeFromViewportTop"] = toppo;
-                    item["treeFromViewportLeft"] = leftpo;
-                    item["latitude"] = lat;
-                    item["longitude"] = long;
-                    item["heading"] = headi + "%";
-                    item["pitch"] = pit;
-                    item["location"] = loca;
-                    jsonObj.push(item);
-                    console.log(jsonObj); // here you will get the json of numbers of trees and there positions;
-                    localStorage.setItem(area, JSON.stringify(jsonObj));
-                    return false;
-                });
-
-            })
-    </script>
-
-    <script type="text/javascript">
-        var map;
-        var panorama;
-        var sv;
-        var initPosition = { lat: 39.7392, lng: -104.9903 };
-        var streetviewLocation;
-
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+        <script type="text/javascript">
+            var map;
+            var panorama;
+            var sv;
+            var initPosition = {lat: 39.7392, lng: -104.9903};
+            var streetviewLocation;
+            function initMap() {
+               // debugger;
+            map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 13,
                 center: initPosition,
                 gestureHandling: 'none',
-                zoomControl: false,
-                mapTypeControl: false,
-                scaleControl: false,
-                streetViewControl: false,
-                fullscreenControl: false
-            });
-
-            map.addListener('click', function (e) {
-               // // // alert(e.latLng, map);
-
+                zoomControl: false
             });
 
             var geocoder = new google.maps.Geocoder();
@@ -412,213 +176,172 @@
             //    geocodeAddress(geocoder, map);
             //    return false;
             //}
-            document.getElementById('submit').addEventListener('click', function (e) {
+            document.getElementById('submit').addEventListener('click', function () {
+                debugger;
                 geocodeAddress(geocoder, map);
-                $("#treeDiv div").removeClass("active");
-                $("#slide1").addClass("active");
-                $(".bannerimg").animate({ opacity: '0' }, "800").delay(800).hide();
-                // // debugger;
-                // // debugger;
-                var countpluse = 0;
-                var countsub = 0;
-                $(".gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom .gm-compass button").click(function () {
-                    var btn = $(this).attr("jstcache");
-                    if (btn == 40) {
-                        $(".carousel-control-prev").click();
-                    }
-                    if (btn == 41) {
-                        $(".carousel-control-next").click();
-                    }
-                });
 
+
+                $(".bannerimg").animate({ opacity: '0' }, "800").delay(800).hide();
+               // debugger;
+                jsonObj = [];
+                var i = 0;
+                $("#3d").click(function (e) {
+                   // debugger;
+                    var area = "";
+                    area = $("#address").val();
+                    var numTree = i++;
+                    var posX = $(this).offset().left, posY = $(this).offset().top;
+                    //  //alert("e.pageX: " + e.pageX + " posX:" + posX + " e.pageY:" + e.pageY + " posY:" + posY);
+                    var toppo = e.pageY - 205;
+                    var leftpo = e.pageX - 75;
+                    $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + toppo + "px;" + " width:150px; left:" + leftpo + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
+                    item = {}
+                    item["tree"] = numTree;
+                    item["treeX"] = leftpo;
+                    item["treeY"] = toppo;
+                    jsonObj.push(item);
+                    console.log(jsonObj); // here you will get the json of numbers of trees and there positions;
+                    localStorage.setItem( area, JSON.stringify(jsonObj));
+                    return false;
+                });
                 jsonObj = [];
                 jsonObj.length = 0;
-                //  console.log(jsonObj);
-                $("#treeDiv div").empty();
-
-                var areatosearch = $("#address").val();
+              //  console.log(jsonObj);
+                $("#3d").empty();
+               var areatosearch = $("#address").val();
                 var previouTrees = localStorage.getItem(areatosearch)
                 if (previouTrees !== null) {
+                    //...
+                   // //alert(previouTrees);
                     var obj = jQuery.parseJSON(previouTrees);
                     $.each(obj, function (key, value) {
-                        // // alert(key + ":" + value);
-                        $("#" + value.divId).append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + value.treeFromViewportTop + "px;" + " width:150px; left:" + value.treeFromViewportLeft + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
+                       // //alert(key + ":" + value);
+                        $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + value.treeY + "px;" + " width:150px; left:" + value.treeX + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
                     });
-
+                   // $("#3d").append("<img src='static/3d/tree_1.png' style='position: absolute; top:" + toppo + "px;" + " width:150px; left:" + leftpo + "px;" + "right: 70px; z-index: 5000;' alt='tree'/>");
                 } else {
-                    // //// // alert(2);
+                   // //alert(2);
                 }
-
-
             });
-
             sv = new google.maps.StreetViewService();
             panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
             addPanoramaListener(panorama);
             panorama.setPosition(initPosition);
-        }
+            map.addListener('click', function(event) {
+                sv.getPanorama({ location: event.latLng, radius: 50 }, processSVData);
 
-        function addPanoramaListener(panoramaObject) {
 
-           // // // alert(panoramaObject);
-            panorama.addListener('pano_changed', function () {
-                var panoCell = document.getElementById('pano-cell');
-                panoCell.innerHTML = panorama.getPano();
             });
-            panorama.addListener('links_changed', function () {
-                var linksTable = document.getElementById('links_table');
-                while (linksTable.hasChildNodes()) {
-                    linksTable.removeChild(linksTable.lastChild);
-                }
-                var links = panorama.getLinks();
-                for (var i in links) {
-                    var row = document.createElement('tr');
-                    linksTable.appendChild(row);
-                    var labelCell = document.createElement('td');
-                    labelCell.innerHTML = '<b>Link: ' + i + '</b>';
-                    var valueCell = document.createElement('td');
-                    valueCell.innerHTML = links[i].description;
-                    linksTable.appendChild(labelCell);
-                    linksTable.appendChild(valueCell);
-                }
-            });
-            panorama.addListener('position_changed', function () {
-                var positionCell = document.getElementById('position-cell');
-                var positionCellLatitude = document.getElementById('lat-cell');
-                var positionCellLongitude = document.getElementById('lng-cell');
-                positionCell.firstChild.nodeValue = panorama.getPosition() + '';
-                positionCellLatitude.firstChild.nodeValue = panorama.getPosition().lat() + '';
-                positionCellLongitude.firstChild.nodeValue = panorama.getPosition().lng() + '';
-            });
-            panorama.addListener('pov_changed', function () {
-                var headingCell = document.getElementById('heading-cell');
-                var pitchCell = document.getElementById('pitch-cell');
-                headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
-                pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
-
-                window.setTimeout(function () {
-                    rotatedPanoramp();
-                }, 3000);
-            });
-
-        }
-
-
-        function rotatedPanoramp() {
-            var transform = $(".gm-compass button[jstcache~=39]");
-            var headingVal = document.getElementById('heading-cell').innerHTML;
-
-
-            //function getRotationDegrees(obj) {
-            //    var matrix = obj.css("-webkit-transform") ||
-            //    obj.css("-moz-transform") ||
-            //    obj.css("-ms-transform") ||
-            //    obj.css("-o-transform") ||
-            //    obj.css("transform");
-            //    if (matrix !== 'none') {
-            //        var values = matrix.split('(')[1].split(')')[0].split(',');
-            //        var a = values[0];
-            //        var b = values[1];
-            //        var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-
-            //       //  alert("angle " + angle + " headingVal " + headingVal);
-
-            //    } else { var angle = 0; }
-            //    return (angle < 0) ? angle + 360 : angle;
-            //}
-
-            //angle1 = getRotationDegrees(transform);
-        }
+            }
 
 
 
-        function geocodeAddress(geocoder, resultsMap) {
-            var address = document.getElementById('address').value;
-            geocoder.geocode({ 'address': address }, function (results, status) {
+
+
+
+            function addPanoramaListener(panoramaObject) {
+                panorama.addListener('pano_changed', function() {
+                   var panoCell = document.getElementById('pano-cell');
+                   panoCell.innerHTML = panorama.getPano();
+                });
+                panorama.addListener('links_changed', function() {
+                   var linksTable = document.getElementById('links_table');
+                   while (linksTable.hasChildNodes()) {
+                     linksTable.removeChild(linksTable.lastChild);
+                   }
+                   var links = panorama.getLinks();
+                   for (var i in links) {
+                     var row = document.createElement('tr');
+                     linksTable.appendChild(row);
+                     var labelCell = document.createElement('td');
+                     labelCell.innerHTML = '<b>Link: ' + i + '</b>';
+                     var valueCell = document.createElement('td');
+                     valueCell.innerHTML = links[i].description;
+                     linksTable.appendChild(labelCell);
+                     linksTable.appendChild(valueCell);
+                   }
+                });
+                panorama.addListener('position_changed', function() {
+                   var positionCell = document.getElementById('position-cell');
+                   var positionCellLatitude = document.getElementById('lat-cell');
+                   var positionCellLongitude = document.getElementById('lng-cell');
+                   positionCell.firstChild.nodeValue = panorama.getPosition() + '';
+                   positionCellLatitude.firstChild.nodeValue = panorama.getPosition().lat() + '';
+                   positionCellLongitude.firstChild.nodeValue = panorama.getPosition().lng() + '';
+                });
+                panorama.addListener('pov_changed', function() {
+                   var headingCell = document.getElementById('heading-cell');
+                   var pitchCell = document.getElementById('pitch-cell');
+                   headingCell.firstChild.nodeValue = panorama.getPov().heading + '';
+                   pitchCell.firstChild.nodeValue = panorama.getPov().pitch + '';
+                });
+            }
+            function geocodeAddress(geocoder, resultsMap) {
+                var address = document.getElementById('address').value;
+                geocoder.geocode({'address': address}, function(results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
-                    resultsMap.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: resultsMap,
-                        position: results[0].geometry.location
-                    });
-                    // Set the initial Street View camera to the center of the map
-                    sv.getPanorama({ location: results[0].geometry.location, radius: 50 }, processSVData);
-                    streetviewLocation = results[0].geometry.location;
-
-                    var loc = document.getElementById('location-cell');
-                    var latitude = results[0].geometry.location.lat();
-                    var longitude = results[0].geometry.location.lng();
-                   // // alert(latitude + " " + longitude);
-                    var latlng = new google.maps.LatLng(latitude, longitude);
-                    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-                            if (results[1]) {
-                                //// alert("Location: " + results[1].formatted_address);
-                                loc.innerHTML = results[1].formatted_address;
-
-                            }
-                        }
-                    });
+                  resultsMap.setCenter(results[0].geometry.location);
+                  var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                  });
+                  // Set the initial Street View camera to the center of the map
+                  sv.getPanorama({location: results[0].geometry.location, radius: 50}, processSVData);
+                  streetviewLocation = results[0].geometry.location;
                 } else {
-                    //// // alert('Geocode was not successful for the following reason: ' + status);
+                  //alert('Geocode was not successful for the following reason: ' + status);
                 }
-            });
-        }
-
-
-
-        function processSVData(data, status) {
-            if (status === google.maps.StreetViewStatus.OK) {
+                });
+            }
+            function processSVData(data, status) {
+                if (status === google.maps.StreetViewStatus.OK) {
                 var marker = new google.maps.Marker({
-                    position: data.location.latLng,
-                    map: map,
-                    title: data.location.description
+                  position: data.location.latLng,
+                  map: map,
+                  title: data.location.description
                 });
                 panorama.setPano(data.location.pano);
                 panorama.setPov({
-                    heading: 0,
-                    pitch: 0
+                  heading: 250,
+                  pitch: 0
                 });
                 panorama.setVisible(true);
-                marker.addListener('click', function () {
-                    var markerPanoID = data.location.pano;
-                    // Set the Pano to use the passed panoID.
-                    panorama.setPano(markerPanoID);
-                    panorama.setPov({
-                        heading: 270,
-                        pitch: 0
-                    });
-                    panorama.setVisible(true);
+                marker.addListener('click', function() {
+                  var markerPanoID = data.location.pano;
+                  // Set the Pano to use the passed panoID.
+                  panorama.setPano(markerPanoID);
+                  panorama.setPov({
+                    heading: 270,
+                    pitch: 0
+                  });
+                  panorama.setVisible(true);
                 });
-            } else {
+                } else {
                 console.error('Street View data not found for this location.');
+                }
             }
-        }
-        document.getElementById('address').addEventListener('keyup', function (event) {
-            if (event.keyCode == 13) {
-                document.getElementById('submit').click();
-            }
-        });
-        document.getElementById('address').addEventListener('click', function () {
-            var apiKey = 'AIzaSyDwv3jzb9Cc4QD9pRhwgeL4pz8WX6DRpLE';
-            var coreURL = 'https://maps.googleapis.com/maps/api/streetview?size=';
-            var latitude = document.getElementById('lat-cell').innerHTML;
-            var longitude = document.getElementById('lng-cell').innerHTML;
-            var location = latitude + ',' + longitude;
-            var heading = document.getElementById('heading-cell').innerHTML;
-            var pitch = document.getElementById('pitch-cell').innerHTML;
-            var imageWidth = '600';
-            var imageHeigth = '300';
-            // window.location =  coreURL + imageWidth + 'x' + imageHeigth + '&location=' + location +'&heading=' + heading + '&pitch=' + pitch + '&key=' + apiKey;
-        });
+            document.getElementById('address').addEventListener('keyup', function (event) {
+                if (event.keyCode == 13) {
+                    document.getElementById('submit').click();
+                }
+            });
+            document.getElementById('address').addEventListener('click', function() {
+                var apiKey      = 'AIzaSyDwv3jzb9Cc4QD9pRhwgeL4pz8WX6DRpLE';
+                var coreURL     = 'https://maps.googleapis.com/maps/api/streetview?size=';
+                var latitude    = document.getElementById('lat-cell').innerHTML;
+                var longitude   = document.getElementById('lng-cell').innerHTML;
+                var location    = latitude + ',' + longitude;
+                var heading     = document.getElementById('heading-cell').innerHTML;
+                var pitch       = document.getElementById('pitch-cell').innerHTML;
+                var imageWidth  = '600';
+                var imageHeigth = '300';
+               // window.location =  coreURL + imageWidth + 'x' + imageHeigth + '&location=' + location +'&heading=' + heading + '&pitch=' + pitch + '&key=' + apiKey;
+            });
+        </script>
 
 
 
-    </script>
-
-
-
-    <script>
+        <script>
 
 
             // Translates degrees to meters. It is just a hack, not a proper projection.
@@ -684,14 +407,21 @@
             // On the parking lot behind Ada Byron building
             var objectPosition = [41.684561,-0.888864];
             var worldOrigin = [41.684561,-0.888864];
-            var meshPos =  {'x': 0, 'y': -2, 'z': 0}; // We take the position of the treeDiv object as the center of the world, so its position will be 0,-2,0
+            var meshPos =  {'x': 0, 'y': -2, 'z': 0}; // We take the position of the 3d object as the center of the world, so its position will be 0,-2,0
 
            // var loader = new THREE.TDSLoader( );
-          // loader.setPath( 'static/treeDiv/' );
-           //loader.load('static/treeDiv/TreeN190616.3ds', loadWheel);
-           //loader.load('static/treeDiv/tree_PNG3477.png', loadWheel);
+          // loader.setPath( 'static/3d/' );
+           //loader.load('static/3d/TreeN190616.3ds', loadWheel);
+           //loader.load('static/3d/tree_PNG3477.png', loadWheel);
 
-    </script>
+        </script>
 
-</body>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                localStorage.clear();
+            })
+        </script>
+
+
+	</body>
 </html>
